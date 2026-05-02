@@ -3,6 +3,8 @@ services:
     build: ./ase220-group-project-frontend
     ports:
       - "5173:5173"
+    volumes:
+      - ./ase220-group-project-frontend/src:/app/src
 
   backend:
     build: ./ase220-group-project-backend
