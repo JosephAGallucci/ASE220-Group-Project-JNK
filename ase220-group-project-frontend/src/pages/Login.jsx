@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useToken } from "../context/AuthContext";
 
-export default function Login({ setToken }) {
+export default function Login() {
+  const { setToken } = useToken();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,6 +14,9 @@ export default function Login({ setToken }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
     });
+
+    // testing without backend
+    setToken(username);
 
     if (response.ok) {
       const data = await response.json();
