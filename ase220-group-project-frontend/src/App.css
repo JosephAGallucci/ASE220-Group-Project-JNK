@@ -186,17 +186,27 @@
   }
 }
 
+#note-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  flex-grow: 1;
+  margin: 24px;
+  gap: 12px;
+}
+
 form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  /* spacing between children instead of margins */
+  padding: 24px;
+}
+
+.login-form {
   width: 320px;
   /* constrain it so it doesn't stretch */
   margin: auto;
   /* center horizontally, or use a wrapper to center vertically too */
-  padding: 24px;
-  /* breathe inside the form */
 }
 
 input {

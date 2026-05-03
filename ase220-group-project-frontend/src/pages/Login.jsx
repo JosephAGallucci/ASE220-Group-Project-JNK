@@ -27,7 +27,7 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <input
         type="text"
         value={username}
