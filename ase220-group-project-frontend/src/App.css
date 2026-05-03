@@ -203,3 +203,14 @@ input {
   padding: 8px;
   border-radius: 8px;
 }
+
+.mininote {
+  width: 10vw;
+  height: 10vw;
+  padding: 10px;
+}
+
+.filtertag {
+  float: right;
+  align-items: center;
+}

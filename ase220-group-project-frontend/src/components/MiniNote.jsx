@@ -32,7 +32,7 @@ export default function MiniNote({noteText, noteTags})
         break;
     }
     return (
-        <div style={{background: noteColor, height: '8%', width: '6%', padding: "10px"}}>
+        <div style={{background: noteColor}} className="mininote">
             {noteText}
         </div>
     )
