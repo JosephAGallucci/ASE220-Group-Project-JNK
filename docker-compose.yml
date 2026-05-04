@@ -10,22 +10,22 @@ services:
     build: ./ase220-group-project-backend
     ports:
       - "3000:3000"
+    environment:
+      PORT: 3000
+      MONGO_URI: mongodb://db:27017/notes
+      JWT_SECRET: dev-secret-change-me
+    volumes:
+      - ./ase220-group-project-backend/src:/app/src
     depends_on:
       - db
-    profiles:
-      - disabled
 
   db:
-    image: postgres:16-alpine
+    image: mongo:7
     restart: unless-stopped
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
     ports:
-      - "5432:5432"
+      - "27017:27017"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - mongodata:/data/db
 
 volumes:
-  pgdata:
+  mongodata:
