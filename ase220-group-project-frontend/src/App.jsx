@@ -3,12 +3,14 @@ import './App.css'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx';
 import Home from './pages/Home.jsx';
+import UserDashboard from './pages/UserDashboard.jsx';
 
 
 const router = createBrowserRouter([
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
-  { path: '/', element: <Home /> }
+  { path: '/', element: <Home /> },
+  { path: '/dashboard', element: <UserDashboard /> },
 ]);
 
 function App() {
