@@ -251,12 +251,18 @@ nav>a.active {
   background: var(--bg);
 }
 
+.create-form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mininote {
   color: black;
   width: 125px;
   height: 125px;
   padding: 10px;
   align-content: center;
+  cursor: pointer;
 }
 
 .filtertag {
@@ -272,6 +278,4 @@ nav>a.active {
   margin-right: auto;
 }
 
-.deletebutton {
-  
-}
+.deletebutton {}

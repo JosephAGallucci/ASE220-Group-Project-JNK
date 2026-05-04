@@ -19,6 +19,11 @@ export default function Header() {
                 {token ?
                     <>
                         <NavLink to="/dashboard">My Notes</NavLink>
+                        <NavLink to="/createnote" style={{
+                            position: 'absolute',
+                            left: '50%',
+                            transform: 'translateX(-50%)'
+                        }}>Create Note</NavLink>
                         <button onClick={logout} className="logout">Logout</button>
                     </> :
                     <button onClick={login} className="logout">Login</button>
