@@ -1,5 +1,6 @@
 import { useToken } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const { setToken } = useToken();
@@ -20,5 +21,10 @@ export default function Login() {
     }
   };
 
-  return <AuthForm onSubmit={handleLogin} submitLabel="Login" />
+  return (
+    <div style={{ margin: 'auto' }}>
+      <AuthForm onSubmit={handleLogin} submitLabel="Login" />
+      <Link to="/register">Register instead</Link>
+    </div>
+  )
 }

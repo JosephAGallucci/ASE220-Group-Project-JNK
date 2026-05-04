@@ -19,28 +19,31 @@ export default function AuthForm({ onSubmit, submitLabel }) {
     }, [token]);
 
     return (
-        <form className="login-form" onSubmit={(e) => {
-            e.preventDefault();
-            onSubmit(username, password, setError);
-        }}>
-            <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
-            />
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-            />
-            {error &&
-                <div className="error">
-                    {error}
-                </div>
-            }
-            <button type="submit">{submitLabel}</button>
-        </form>
+        <>
+            <h2>{submitLabel}</h2>
+            <form className="login-form" onSubmit={(e) => {
+                e.preventDefault();
+                onSubmit(username, password, setError);
+            }}>
+                <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username"
+                />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                />
+                {error &&
+                    <div className="error">
+                        {error}
+                    </div>
+                }
+                <button type="submit">{submitLabel}</button>
+            </form>
+        </>
     );
 }

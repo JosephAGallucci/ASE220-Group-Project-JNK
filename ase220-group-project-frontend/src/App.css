@@ -204,9 +204,6 @@ form {
 
 .login-form {
   width: 320px;
-  /* constrain it so it doesn't stretch */
-  margin: auto;
-  /* center horizontally, or use a wrapper to center vertically too */
 }
 
 .error {
