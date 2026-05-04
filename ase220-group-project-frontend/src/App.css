@@ -209,6 +209,15 @@ form {
   /* center horizontally, or use a wrapper to center vertically too */
 }
 
+.error {
+  background-color: indianred;
+  color: white;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: indianred;
+  border-style: outset;
+}
+
 input {
   padding: 8px;
   border-radius: 8px;
