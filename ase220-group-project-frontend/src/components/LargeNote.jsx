@@ -1,12 +1,5 @@
-import { useNavigate } from "react-router-dom";
-
-export default function MiniNote({note})
+export default function LargeNote({note})
 {
-    const navigate = useNavigate();
-    const urlDirect = () => {
-        navigate(`/viewnote/${note.id}`);
-    }
-
     var noteColor;
     switch (note.tag)
     {
@@ -39,8 +32,12 @@ export default function MiniNote({note})
         break;
     }
     return (
-        <div style={{background: noteColor}} className="mininote" onClick={urlDirect}>
-            {note.title}
+        <>
+        <h3>{note.title}</h3>
+        <div style={{background: noteColor}} className="largenote">
+            {note.content}
         </div>
+        <button>Delete</button>
+        </>
     )
 }
