@@ -8,7 +8,7 @@ export default function NoteGrid({ notes }) {
   return (
     <div id="note-list">
       {notes.map((note) =>
-        <MiniNote key={note.id} noteText={note.title} noteTags={note.tag} />
+        <MiniNote key={notes.id} note={note} />
       )}
     </div>
   )
