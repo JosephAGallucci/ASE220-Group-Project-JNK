@@ -253,13 +253,25 @@ nav>a.active {
 
 .mininote {
   color: black;
-  width: 110px;
-  height: 110px;
+  width: 125px;
+  height: 125px;
   padding: 10px;
   align-content: center;
 }
 
 .filtertag {
-  float: right;
   align-items: center;
+}
+
+.largenote {
+  color: black;
+  width: 550px;
+  height: auto;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.deletebutton {
+  
 }
