@@ -223,6 +223,37 @@ input {
   border-radius: 8px;
 }
 
+header {
+  background: var(--social-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav>a,
+.logout {
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+nav>a.active {
+  border-color: var(--accent-border);
+}
+
+.logout {
+  margin-left: auto;
+  font: inherit;
+  cursor: pointer;
+  background: var(--bg);
+}
+
 .mininote {
   color: black;
   width: 110px;
