@@ -1,15 +1,10 @@
-import { useState } from "react";
 import { useToken } from "../context/AuthContext";
+import AuthForm from "../components/AuthForm";
 
 export default function Login() {
   const { setToken } = useToken();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleLogin = async (username, password, setError) => {
     const response = await fetch("/API/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -25,26 +20,5 @@ export default function Login() {
     }
   };
 
-  return (
-    <form className="login-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      {error &&
-        <div className="error">
-          {error}
-        </div>
-      }
-      <button type="submit">Login</button>
-    </form>
-  );
+  return <AuthForm onSubmit={handleLogin} submitLabel="Login" />
 }
