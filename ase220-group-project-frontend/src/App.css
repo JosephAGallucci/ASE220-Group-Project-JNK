@@ -101,6 +101,9 @@ nav {
   padding: 20px;
 }
 
-.deletebutton {
+.view-options {
+  display: flex;
+  justify-content: center;
   margin-top: 8px;
+  gap: 8px;
 }

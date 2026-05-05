@@ -2,7 +2,9 @@ import { useState } from "react";
 
 /**
  * @param {Object} props
+ * @param {Object} props.note
  * @param {(title: String, content: String, tag: String) => void} props.onSubmit
+ * @param {String} props.actionLabel What to display on the submit button
  */
 export default function EditNote({ note, onSubmit, actionLabel }) {
     if (!note) note = { title: '', content: '', tag: 'other' };
