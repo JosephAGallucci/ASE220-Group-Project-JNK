@@ -16,6 +16,10 @@ export default function ViewNote() {
 
     const owner = token ? JSON.parse(atob(token.split('.')[1])).sub : null;
 
+    if (editMode && token === null) {
+        setEditMode(false);
+    }
+
     const deleteNote = () => {
         fetch(`/API/notes/${id}`, {
             method: 'DELETE',
@@ -39,8 +43,10 @@ export default function ViewNote() {
             body: JSON.stringify({ title, content, tag }),
         }).then(res => {
             if (res.ok) {
-                setNote({ ...note, title, content, tag });
-                setEditMode(false);
+                res.json().then(note => {
+                    setNote(note);
+                    setEditMode(false);
+                });
             } else {
                 res.json()
                     .then(e => setError(e.error))
