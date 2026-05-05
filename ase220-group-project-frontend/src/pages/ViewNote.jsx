@@ -10,7 +10,7 @@ export default function ViewNote() {
     const { token } = useToken();
     const navigate = useNavigate();
 
-    const tokenData = JSON.parse(atob(token.split('.')[1]));
+    const owner = token ? JSON.parse(atob(token.split('.')[1])).sub : null;
 
     const deleteNote = () => {
         fetch(`/API/notes/${id}`, {
@@ -41,7 +41,7 @@ export default function ViewNote() {
                 {note ?
                     <>
                         <LargeNote key={id} note={note} />
-                        {tokenData.sub === note.owner && <button onClick={deleteNote} className="deletebutton">Delete</button>}
+                        {owner === note.owner && <button onClick={deleteNote} className="deletebutton">Delete</button>}
                     </>
                     :
                     <p style={{ margin: "auto" }}>There is no note for this id</p>
