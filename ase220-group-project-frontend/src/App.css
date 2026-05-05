@@ -93,8 +93,13 @@ nav {
 
 .largenote {
   color: black;
+  text-align: start;
+  font: inherit;
+  white-space: pre-wrap;
   width: 550px;
   height: auto;
+  resize: none;
+  overflow: hidden;
   max-width: 80vw;
   box-sizing: border-box;
   padding: 20px;

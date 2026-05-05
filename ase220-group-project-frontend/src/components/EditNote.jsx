@@ -51,7 +51,11 @@ export default function EditNote({ note, onSubmit, actionLabel }) {
     return (
         <form onSubmit={createNote} className="create-form">
             <input value={title} type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
-            <textarea value={content} style={{ background: noteColor }} className="largenote" onChange={(e) => setContent(e.target.value)} />
+            <textarea value={content} style={{ background: noteColor, height: 'calc(1lh + 40px)' }} className="largenote" onChange={(e) => {
+                setContent(e.target.value);
+                e.target.style.height = '1em';
+                e.target.style.height = e.target.scrollHeight + 'px';
+            }} />
             <select value={tag} onChange={(e) => setTag(e.target.value)}>
                 <option value="math">Math</option>
                 <option value="science">Science</option>
