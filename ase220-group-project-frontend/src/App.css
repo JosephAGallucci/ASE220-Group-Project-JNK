@@ -274,8 +274,8 @@ nav>a.active {
   width: 550px;
   height: auto;
   padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.deletebutton {}
+.deletebutton {
+  margin-top: 8px;
+}

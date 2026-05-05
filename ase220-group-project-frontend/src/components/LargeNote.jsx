@@ -1,43 +1,40 @@
-export default function LargeNote({note})
-{
+export default function LargeNote({ note }) {
     var noteColor;
-    switch (note.tag)
-    {
+    switch (note.tag) {
         default:
             noteColor = 'yellow';
-        break;
+            break;
 
         case 'science':
             noteColor = 'green';
-        break;
+            break;
 
         case 'math':
             noteColor = 'lightblue';
-        break;
+            break;
 
         case "music":
             noteColor = 'red';
-        break;
+            break;
 
         case "history":
             noteColor = 'pink';
-        break;
+            break;
 
         case "art":
             noteColor = 'orange';
-        break;
+            break;
 
         case "english":
             noteColor = 'purple';
-        break;
+            break;
     }
     return (
         <>
-        <h3>{note.title}</h3>
-        <div style={{background: noteColor}} className="largenote">
-            {note.content}
-        </div>
-        <button>Delete</button>
+            <h3>{note.title}</h3>
+            <div style={{ background: noteColor }} className="largenote">
+                {note.content}
+            </div>
         </>
     )
 }
