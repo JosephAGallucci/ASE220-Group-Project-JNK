@@ -86,6 +86,10 @@ nav {
 
 .filtertag {
   align-items: center;
+
+  h4 {
+    margin-bottom: 0;
+  }
 }
 
 .largenote {
