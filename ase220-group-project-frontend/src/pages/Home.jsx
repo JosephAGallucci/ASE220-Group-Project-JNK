@@ -5,7 +5,7 @@ export default function Home() {
   const [notes, setNotes] = useState(null);
 
   useEffect(() => {
-    fetch('/API/notes').then(res => res.json()).then((setNotes));
+    fetch('/API/notes').then(res => res.json()).then(setNotes);
   }, []);
 
 
