@@ -1,5 +1,8 @@
 # Transcribing Notes
-“Transcribing Passing Notes“ is a web application designed for studying and note-taking. Users would be able to sign in and take notes for a given class or subject, then be able to share them. The main audience of this app is, naturally, students, who either need to catch up on notes for a class to double check with or to share notes they have taken themselves to share with others to compare or learn from.
+“Transcribing Notes“ is a web application designed to assist with studying and note-taking. Users would be able to sign in and take notes for a given class or subject, then be able to share them via a cloud. Anybody could use the app to view published notes, but one must be logged in as a user in order to create and share them. Users can create notes with a specific tag that reflects various common subjects, For example, a user could create a note based on science, or a note based on math.
+The main audience this application is designed for is students. Being a note taking app at its core, students can take notes on their own class material, while also being able to share them with the public. This functionality of sharing also helps other students who may be taking the same class, to either catch up on a missed class or gain a different understanding of the concepts.
+“Transposing Notes” is primarily developed using a flexible React frontend, and a backend consisting of Express and NodeJS, with MongoDB and Mongoose making up the actual database components of the app, while using docker compose to easily start the server without any hassle.
+
 
 ### Team Members
 - Nathan Mill - Backend
