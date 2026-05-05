@@ -15,20 +15,21 @@ export default function Header() {
     return (
         <header>
             <nav>
-                <NavLink to="/">Home</NavLink>
-                {token ?
-                    <>
-                        <NavLink to="/dashboard">My Notes</NavLink>
-                        <NavLink to="/createnote" style={{
-                            position: 'absolute',
-                            left: '50%',
-                            transform: 'translateX(-50%)'
-                        }}>Create Note</NavLink>
+                <div>
+                    <NavLink to="/">Home</NavLink>
+                    {token && <NavLink to="/dashboard">My Notes</NavLink>}
+                </div>
+                <div>
+                    {token && <NavLink to="/createnote">Create Note</NavLink>}
+                </div>
+                <div>
+                    {token ?
                         <button onClick={logout} className="logout">Logout</button>
-                    </> :
-                    <button onClick={login} className="logout">Login</button>
-                }
+                        :
+                        <button onClick={login} className="logout">Login</button>
+                    }
+                </div>
             </nav>
-        </header>
+        </header >
     );
 }

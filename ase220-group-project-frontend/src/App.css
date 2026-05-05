@@ -227,12 +227,19 @@ header {
 }
 
 nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+}
+
+nav>div {
   display: flex;
   gap: 8px;
 }
 
-nav>a,
+nav a,
 .logout {
+  align-content: center;
   text-decoration: none;
   color: inherit;
   border: 2px solid var(--border);
@@ -240,7 +247,7 @@ nav>a,
   padding: 8px;
 }
 
-nav>a.active {
+nav a.active {
   border-color: var(--accent-border);
 }
 
@@ -273,6 +280,8 @@ nav>a.active {
   color: black;
   width: 550px;
   height: auto;
+  max-width: 80vw;
+  box-sizing: border-box;
   padding: 20px;
 }
 
