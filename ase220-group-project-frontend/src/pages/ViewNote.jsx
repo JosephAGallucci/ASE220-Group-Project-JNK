@@ -7,7 +7,8 @@ import EditNote from "../components/EditNote.jsx";
 
 export default function ViewNote() {
     const { id } = useParams();
-    const [editMode, setEditMode] = useState(false);
+    const [editMode, setRawEditMode] = useState(false);
+    const setEditMode = (value) => { setRawEditMode(value); setError(null) };
     const [note, setNote] = useState(null);
     const [error, setError] = useState(null);
     const { token } = useToken();
@@ -43,7 +44,7 @@ export default function ViewNote() {
             } else {
                 res.json()
                     .then(e => setError(e.error))
-                    .catch(setError(`Got code ${res.status}`));
+                    .catch(() => setError(`Got code ${res.status}`));
             }
         }).catch((error) => {
             console.error(error);
@@ -75,6 +76,7 @@ export default function ViewNote() {
             <>
                 {error && <div className="error">{error}</div>}
                 <EditNote note={note} onSubmit={editNote} actionLabel="Edit Note" />
+                <button onClick={() => setEditMode(false)} style={{ alignSelf: 'center' }}>Cancel</button>
             </>
             :
             <div className="create-form">
