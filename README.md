@@ -26,6 +26,9 @@
 ### Stretch features
 Not enough time for any
 
+### Video
+I asked at the presentation and was told that since we did the presentation didn't need the video.
+
 ## Setup and Run
 Requirements:
 - Docker
