@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function UserDashboard() {
   const [filter, setFilter] = useState({ science: true, math: true, history: true, music: true, art: true, english: true, other: true });
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(null);
   const { token } = useToken();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export default function UserDashboard() {
     }).then(res => res.json()).then(setNotes);
   }, [token]);
 
-  const renderedNotes = notes.filter((note) => filter[note.tag]);
+  const renderedNotes = notes?.filter((note) => filter[note.tag]);
 
   return (
     <>

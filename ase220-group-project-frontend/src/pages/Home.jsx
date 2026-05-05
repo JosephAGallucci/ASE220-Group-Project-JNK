@@ -5,13 +5,13 @@ import Header from "../components/Header.jsx";
 
 export default function Home() {
   const [filter, setFilter] = useState({ science: true, math: true, history: true, music: true, art: true, english: true, other: true });
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(null);
 
   useEffect(() => {
-    fetch('/API/notes').then(res => res.json()).then(setNotes);
+    fetch('/API/notes').then(res => res.json()).then((setNotes));
   }, []);
 
-  const renderedNotes = notes.filter((note) => filter[note.tag]);
+  const renderedNotes = notes?.filter((note) => filter[note.tag]);
 
   return (
     <>
