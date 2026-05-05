@@ -7,6 +7,7 @@ import { useToken } from "../context/AuthContext.jsx";
 export default function ViewNote() {
     const { id } = useParams();
     const [note, setNote] = useState(null);
+    const [error, setError] = useState(null);
     const { token } = useToken();
     const navigate = useNavigate();
 
@@ -30,23 +31,23 @@ export default function ViewNote() {
             .then((response) => response.json())
             .then((response) => {
                 if (response.id) setNote(response);
+                else setError(response.error);
             })
             .catch((error) => console.error(error));
     }, []);
 
+    const message = <p style={{ margin: "auto", marginTop: '24px' }}>{error ?? "Loading..."}</p>;
+
     return (
         <>
             <Header />
-            <div className="create-form">
-                {note ?
-                    <>
-                        <LargeNote key={id} note={note} />
-                        {owner === note.owner && <button onClick={deleteNote} className="deletebutton">Delete</button>}
-                    </>
-                    :
-                    <p style={{ margin: "auto" }}>There is no note for this id</p>
-                }
-            </div>
+            {note ?
+                <div className="create-form">
+                    <LargeNote key={id} note={note} />
+                    {owner === note.owner && <button onClick={deleteNote} className="deletebutton">Delete</button>}
+                </div>
+                : message
+            }
         </>
     );
 }
