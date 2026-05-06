@@ -72,14 +72,17 @@ nav {
 
 .create-form {
   align-self: center;
+  align-items: center;
 }
 
 .mininote {
   background: yellow;
   color: black;
-  width: 125px;
-  height: 125px;
+  width: 140px;
+  aspect-ratio: 1;
   padding: 10px;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
   align-content: center;
   cursor: pointer;
 }
