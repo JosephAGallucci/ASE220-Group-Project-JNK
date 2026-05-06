@@ -71,15 +71,12 @@ nav {
 }
 
 .create-form {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
+  align-self: center;
   align-items: center;
 }
 
 .mininote {
+  background: yellow;
   color: black;
   width: 140px;
   aspect-ratio: 1;
@@ -99,14 +96,47 @@ nav {
 }
 
 .largenote {
+  background: yellow;
   color: black;
+  text-align: start;
+  font: inherit;
+  white-space: pre-wrap;
   width: 550px;
   height: auto;
+  resize: none;
+  overflow: hidden;
   max-width: 80vw;
   box-sizing: border-box;
   padding: 20px;
 }
 
-.deletebutton {
+.view-options {
+  display: flex;
+  justify-content: center;
   margin-top: 8px;
+  gap: 8px;
+}
+
+.science {
+  background: green;
+}
+
+.math {
+  background: lightblue;
+}
+
+.music {
+  background: red;
+}
+
+.history {
+  background: pink;
+}
+
+.art {
+  background: orange;
+}
+
+.english {
+  background: purple;
 }

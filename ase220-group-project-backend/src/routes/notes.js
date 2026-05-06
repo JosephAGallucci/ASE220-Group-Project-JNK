@@ -107,6 +107,74 @@ router.post("/", requireAuth, async function (req, res) {
 });
 
 
+// PATCH /API/notes/:id
+router.patch("/:id", requireAuth, async function (req, res) {
+  const id = req.params.id;
+
+  if (!mongoose.isValidObjectId(id)) {
+    res.status(404).json({ error: "Note not found" });
+    return;
+  }
+
+
+  const note = await Note.findById(id);
+
+  if (!note) {
+    res.status(404).json({ error: "Note not found" });
+    return;
+  }
+
+
+  //only the owner can update
+  if (note.owner.toString() !== req.user.id) {
+    res.status(403).json({ error: "You do not have permission to update this note" });
+    return;
+  }
+
+
+  const body = req.body;
+
+  if (!body) {
+    res.status(400).json({ error: "no fields to update" });
+    return;
+  }
+
+
+  //at least one field has to be present
+  let changed = false;
+
+  if (typeof body.title === "string") {
+    if (!body.title) {
+      res.status(400).json({ error: "title cannot be empty" });
+      return;
+    }
+    note.title = body.title;
+    changed = true;
+  }
+
+  if (typeof body.content === "string") {
+    note.content = body.content;
+    changed = true;
+  }
+
+  if (typeof body.tag === "string") {
+    note.tag = body.tag;
+    changed = true;
+  }
+
+
+  if (!changed) {
+    res.status(400).json({ error: "no fields to update" });
+    return;
+  }
+
+
+  await note.save();
+
+  res.json(shape(note));
+});
+
+
 // DELETE /API/notes/:id
 router.delete("/:id", requireAuth, async function (req, res) {
   const id = req.params.id;
