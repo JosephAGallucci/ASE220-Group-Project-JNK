@@ -75,6 +75,7 @@ nav {
 }
 
 .mininote {
+  background: yellow;
   color: black;
   width: 125px;
   height: 125px;
@@ -92,6 +93,7 @@ nav {
 }
 
 .largenote {
+  background: yellow;
   color: black;
   text-align: start;
   font: inherit;
@@ -110,4 +112,28 @@ nav {
   justify-content: center;
   margin-top: 8px;
   gap: 8px;
+}
+
+.science {
+  background: green;
+}
+
+.math {
+  background: lightblue;
+}
+
+.music {
+  background: red;
+}
+
+.history {
+  background: pink;
+}
+
+.art {
+  background: orange;
+}
+
+.english {
+  background: purple;
 }

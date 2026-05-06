@@ -1,45 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-export default function MiniNote({note})
-{
+export default function MiniNote({ note }) {
     const navigate = useNavigate();
     const urlDirect = () => {
         navigate(`/viewnote/${note.id}`);
     }
 
-    var noteColor;
-    switch (note.tag)
-    {
-        default:
-            noteColor = 'yellow';
-        break;
-
-        case 'science':
-            noteColor = 'green';
-        break;
-
-        case 'math':
-            noteColor = 'lightblue';
-        break;
-
-        case "music":
-            noteColor = 'red';
-        break;
-
-        case "history":
-            noteColor = 'pink';
-        break;
-
-        case "art":
-            noteColor = 'orange';
-        break;
-
-        case "english":
-            noteColor = 'purple';
-        break;
-    }
     return (
-        <div style={{background: noteColor}} className="mininote" onClick={urlDirect}>
+        <div className={`mininote ${note.tag}`} onClick={urlDirect}>
             {note.title}
         </div>
     )

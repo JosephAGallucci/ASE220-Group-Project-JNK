@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * @param {Object} props
@@ -11,6 +11,7 @@ export default function EditNote({ note, onSubmit, actionLabel }) {
     const [title, setTitle] = useState(note.title);
     const [content, setContent] = useState(note.content);
     const [tag, setTag] = useState(note.tag);
+    const ref = useRef();
 
     const createNote = (e) => {
         e.preventDefault();
@@ -18,42 +19,16 @@ export default function EditNote({ note, onSubmit, actionLabel }) {
         onSubmit(title, content, tag);
     };
 
-    var noteColor;
-    switch (tag) {
-        default:
-            noteColor = 'yellow';
-            break;
+    useEffect(() => {
+        ref.current.style.height = ref.current.scrollHeight + 'px';
+    }, []);
 
-        case 'science':
-            noteColor = 'green';
-            break;
-
-        case 'math':
-            noteColor = 'lightblue';
-            break;
-
-        case "music":
-            noteColor = 'red';
-            break;
-
-        case "history":
-            noteColor = 'pink';
-            break;
-
-        case "art":
-            noteColor = 'orange';
-            break;
-
-        case "english":
-            noteColor = 'purple';
-            break;
-    }
     return (
         <form onSubmit={createNote} className="create-form">
             <input value={title} type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
-            <textarea value={content} style={{ background: noteColor, height: 'calc(1lh + 40px)' }} className="largenote" onChange={(e) => {
+            <textarea value={content} rows={1} ref={ref} className={`largenote ${tag}`} onChange={(e) => {
                 setContent(e.target.value);
-                e.target.style.height = '1em';
+                e.target.style.height = '0';
                 e.target.style.height = e.target.scrollHeight + 'px';
             }} />
             <select value={tag} onChange={(e) => setTag(e.target.value)}>
