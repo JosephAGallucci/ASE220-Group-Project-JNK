@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
@@ -10,6 +10,12 @@ COPY index.html ./
 COPY public/ ./public/
 COPY src/ ./src/
 
-EXPOSE 5173
+RUN npm run build
 
-CMD ["npm", "run", "dev", "--", "--host"]
+FROM caddy:2-alpine
+
+COPY --from=build /app/dist/ /app/
+COPY Caddyfile /etc/caddy/Caddyfile
+
+EXPOSE 80
+EXPOSE 443

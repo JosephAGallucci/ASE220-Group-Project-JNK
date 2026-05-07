@@ -1,0 +1,11 @@
+http://localhost, http://kaiden-arch, * {
+	handle /API/* {
+		reverse_proxy backend:3000
+	}
+
+	handle {
+		root * /app/
+		try_files {path} /index.html
+		file_server
+	}
+}

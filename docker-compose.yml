@@ -2,18 +2,14 @@ services:
   frontend:
     build: ./ase220-group-project-frontend
     ports:
-      - "5173:5173"
-    volumes:
-      - ./ase220-group-project-frontend/src:/app/src
+      - "5173:80"
 
   backend:
     build: ./ase220-group-project-backend
-    ports:
-      - "3000:3000"
     environment:
       PORT: 3000
       MONGO_URI: mongodb://db:27017/notes
-      JWT_SECRET: dev-secret-change-me
+      JWT_SECRET: ${JWT_SECRET}
     volumes:
       - ./ase220-group-project-backend/src:/app/src
     depends_on:
@@ -22,8 +18,6 @@ services:
   db:
     image: mongo:7
     restart: unless-stopped
-    ports:
-      - "27017:27017"
     volumes:
       - mongodata:/data/db
 
