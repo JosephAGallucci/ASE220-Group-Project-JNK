@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: ./ase220-group-project-frontend
+      target: dev  # Tells Docker to stop at the 'dev' stage
+    ports:
+      - "5173:5173" # Map to Vite's dev port instead of Caddy's 80
+    volumes:
+      - ./ase220-group-project-frontend:/app
+      - /app/node_modules # Anonymous volume to protect container's node_modules
+
+  backend:
+    # Your backend already has dev logic (volumes), 
+    # but you could move the volume mapping here 
+    # if you want the base file to be "pure prod."
+    volumes:
+      - ./ase220-group-project-backend/src:/app/src

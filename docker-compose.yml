@@ -2,7 +2,7 @@ services:
   frontend:
     build: ./ase220-group-project-frontend
     ports:
-      - "5173:80"
+      - "80:80"
 
   backend:
     build: ./ase220-group-project-backend
